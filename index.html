@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    min-height:100vh;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#94a3b8;
+}
+
+.upload-area{
+    border:2px dashed #3b82f6;
+    border-radius:20px;
+    padding:60px;
+    text-align:center;
+    cursor:pointer;
+    transition:.3s;
+    background:#111827;
+}
+
+.upload-area:hover{
+    border-color:#60a5fa;
+}
+
+.upload-area.drag{
+    background:#1e293b;
+}
+
+.upload-content h2{
+    margin-bottom:10px;
+}
+
+.upload-content p{
+    color:#94a3b8;
+}
+
+button{
+    width:100%;
+    margin-top:20px;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:#2563eb;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.loading{
+    margin-top:25px;
+    text-align:center;
+}
+
+.result{
+    margin-top:30px;
+    background:#111827;
+    padding:25px;
+    border-radius:16px;
+}
+
+.result h2{
+    margin-bottom:15px;
+}
+
+.hidden{
+    display:none;
+}
+    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyMind AI</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="hero">
+        <h1>PDF Mentor</h1>
+        <p>Transforme PDFs em resumos inteligentes</p>
+    </div>
+
+    <div class="upload-area" id="dropZone">
+        <input type="file" id="pdfInput" accept=".pdf" hidden>
+
+        <div class="upload-content">
+            <h2>Arraste seu PDF aqui</h2>
+            <p>ou clique para selecionar</p>
+        </div>
+    </div>
+
+    <button id="sendBtn">
+        Resumir PDF
+    </button>
+
+    <div class="loading hidden" id="loading">
+        Analisando documento...
+    </div>
+
+    <div class="result hidden" id="result">
+        <h2>Resumo</h2>
+        <div id="summary"></div>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
